@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event Countdown</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css">
+  <style>
+    /* Add padding to the modal body for a less cramped look */
+    .modal-body {
+      padding: 20px 30px;
+    }
+
+    /* Improve input field spacing */
+    .modal-body .form-control {
+      margin-bottom: 20px;
+    }
+
+    /* Floating action button styling */
+    .fab {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      border-radius: 50%;
+      font-size: 1.5rem;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+
+    /* Style modal title and button */
+    .modal-title {
+      font-weight: bold;
+      font-size: 1.2rem;
+    }
+
+    .btn-success {
+      font-size: 1rem;
+      font-weight: 500;
+      padding: 10px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="container my-5">
+    <h1 class="text-center mb-4">Event Countdown</h1>
+
+    <!-- Countdown Display Area -->
+    <div id="countdown-display" class="row gy-3">
+      <!-- Countdown items will appear here -->
+    </div>
+
+    <!-- Floating Action Button -->
+    <button type="button" class="btn btn-primary fab" data-bs-toggle="modal" data-bs-target="#eventModal">
+      +
+    </button>
+
+    <!-- Modal for Adding New Event -->
+    <div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="eventModalLabel">Add New Event</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            <form id="event-form">
+              <!-- Event Name Field -->
+              <div class="mb-4">
+                <label for="Name of event" class="form-label">Event Name</label>
+                <input type="text" id="Name of event" placeholder="Enter event name" class="form-control" required />
+              </div>
+
+              <!-- Event Date & Time Field -->
+              <div class="mb-4">
+                <label for="Date of event" class="form-label">Event Date & Time</label>
+                <input type="datetime-local" id="Date of event" class="form-control" required />
+              </div>
+
+              <!-- Add Event Button -->
+              <div class="d-grid">
+                <button type="button" onclick="addEvent()" class="btn btn-success" data-bs-dismiss="modal">
+                  Add Event
+                </button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
